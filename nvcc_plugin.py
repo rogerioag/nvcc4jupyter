@@ -32,3 +32,6 @@ def load_ipython_extension(ip):
 
     gem5_plugin = GEM5(ip)
     ip.register_magics(gem5_plugin)
+
+    vhdl_plugin = VHDL(ip)
+    ip.register_magics(vhdl_plugin)
