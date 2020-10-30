@@ -96,7 +96,7 @@ class VHDLPlugin(Magics):
         
         import sys
         sys.path.insert(0,'.')
-        from nvcc4jupyter.verilog.vcd_parser.vcd_plotter import VcdPlotter
+        from nvcc4jupyter.vhdl.vcd_parser.vcd_plotter import VcdPlotter
 
         sign_list = []
         time_begin = []
