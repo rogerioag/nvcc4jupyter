@@ -6,6 +6,7 @@ from java.java import JavaPlugin as JAVA
 from verilog.verilog import VERILOGPlugin as VERILOG
 from valgrind.valgrind import ValgrindPlugin as Valgrind
 from gem5.gem5 import Gem5Plugin as GEM5
+from vhdl.vhdl import VHDLPlugin as VHDL
 
 
 def load_ipython_extension(ip):
