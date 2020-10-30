@@ -20,7 +20,7 @@ class VHDLPlugin(Magics):
         self.permission()
     
     def permission(self):
-        args = ["chmod", "a+x", "-R", "/content/nvcc4jupyter/verilog/"]
+        args = ["chmod", "a+x", "-R", "/content/nvcc4jupyter/vhdl/"]
 
         output = subprocess.check_output(args, stderr=subprocess.STDOUT)
         output = output.decode('utf8')
@@ -37,7 +37,7 @@ class VHDLPlugin(Magics):
         
         subprocess.check_output(args, stderr=subprocess.STDOUT)
 
-    def run_verilog(self, file_path):
+    def run_vhdl(self, file_path):
         args = [file_path + ".out"]
 
         output = subprocess.check_output(args, stderr=subprocess.STDOUT)
@@ -56,7 +56,7 @@ class VHDLPlugin(Magics):
         display(Image(filename="/content/code.png"))
 
     @cell_magic
-    def verilog(self, line, cell):
+    def vhdl(self, line, cell):
         args = line.split()
 
         with tempfile.TemporaryDirectory() as tmp_dir:
@@ -65,12 +65,12 @@ class VHDLPlugin(Magics):
                 f.write(cell)
             try:
                 self.compile(file_path, args)
-                self.run_verilog(file_path)
+                self.run_vhdl(file_path)
             except subprocess.CalledProcessError as e:
                 helper.print_out(e.output.decode("utf8"))
     
     @cell_magic
-    def print_verilog(self, line, cell):
+    def print_vhdl(self, line, cell):
         args = line.split()
 
         file_path = os.path.join('/content/code')
